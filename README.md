@@ -13,7 +13,9 @@ This project has no external dependencies. It's written in pure Java.
 
 ## Screenshots
 On the desktop:
+
 ![image](https://github.com/surajkumar/countdown-timer-overlay-app/assets/76599223/4faab686-ed99-4af0-ada9-3ea43c6baa7b)
 
-Overlays on-top of applications so you can always see the timer:
+Overlays on-top of applications, so you can always see the timer:
+
 ![image](https://github.com/surajkumar/countdown-timer-overlay-app/assets/76599223/565f6b68-fac9-4960-8809-acf3074565c3)
