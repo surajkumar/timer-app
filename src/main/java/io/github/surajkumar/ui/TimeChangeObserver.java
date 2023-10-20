@@ -21,18 +21,22 @@ public class TimeChangeObserver implements TimeChangeEvent {
     public void onChange(long time) {
         long minutes = time / 60;
         long seconds = time % 60;
-        SwingUtilities.invokeLater(() -> {
-            timerOverlay.setTime(DECIMAL_FORMAT.format(minutes) + ":" + DECIMAL_FORMAT.format(seconds));
-            timerOverlay.revalidate();
-            timerOverlay.repaint();
-        });
+        timerOverlay.setTime(DECIMAL_FORMAT.format(minutes) + ":" + DECIMAL_FORMAT.format(seconds));
+        repaint();
     }
 
     @Override
     public void onFinish() {
-        SwingUtilities.invokeLater(() ->
-                timerOverlay.setTime("Finished"));
+        timerOverlay.setTime("Finished");
+        repaint();
         EXECUTOR_SERVICE.schedule(this::exitApplication, 5, TimeUnit.SECONDS);
+    }
+
+    private void repaint() {
+        SwingUtilities.invokeLater(() -> {
+            timerOverlay.revalidate();
+            timerOverlay.repaint();
+        });
     }
 
     private void exitApplication() {
