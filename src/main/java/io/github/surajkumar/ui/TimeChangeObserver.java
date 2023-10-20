@@ -3,6 +3,7 @@ package io.github.surajkumar.ui;
 import io.github.surajkumar.time.TimeChangeEvent;
 
 import javax.swing.*;
+import java.awt.*;
 import java.text.DecimalFormat;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -21,8 +22,16 @@ public class TimeChangeObserver implements TimeChangeEvent {
     public void onChange(long time) {
         long minutes = time / 60;
         long seconds = time % 60;
-        SwingUtilities.invokeLater(() ->
-                timerOverlay.getTimerLabel().setText(DECIMAL_FORMAT.format(minutes) + ":" + DECIMAL_FORMAT.format(seconds)));
+        SwingUtilities.invokeLater(() -> {
+            timerOverlay.getTimerLabel().setText(DECIMAL_FORMAT.format(minutes) + ":" + DECIMAL_FORMAT.format(seconds));
+
+            /* Fixes rendering issue on Windows */
+            Container frame = timerOverlay.getTimerLabel()
+                    .getParent()
+                    .getParent();
+            frame.revalidate();
+            frame.repaint();
+        });
     }
 
     @Override
