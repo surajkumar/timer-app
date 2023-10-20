@@ -8,8 +8,17 @@ The Countdown Timer Desktop Overlay is a simple Java program that allows you to 
 * **Customizable**: Set the timer for any desired duration, such as "10s" for 10 seconds or "1h" for 1 hour
 * **Desktop Overlay**: The timer appears as an overlay on your desktop, so you can keep it in view while working on other tasks.
 
-## Dependencies
-This project has no external dependencies. It's written in pure Java.
+## Local Development
+If you want to pull this repository and work on it locally you will need the following prerequisites:
+
+* Java 11
+* Gradle
+
+You may either clone the repository or fork the upstream repository if you would like to contribute changes:
+
+`git remote add upstream [https://github.com/surajkumar/discord-to-forum-bot.git](https://github.com/surajkumar/countdown-timer-overlay-app.git)`
+
+Within the `countdown-timer-overlay-app` directory, run the Gradle command: `gradle build` this will download any dependencies and build the program.
 
 ## Screenshots
 On the desktop:
