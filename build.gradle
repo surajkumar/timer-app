@@ -1,0 +1,17 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'application'
+}
+
+group = 'io.github.surajkumar'
+version = '1.0'
+
+application {
+    mainClass = 'io.github.surajkumar.TimerApplication'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {}
