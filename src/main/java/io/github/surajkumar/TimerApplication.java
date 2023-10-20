@@ -11,7 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class TimerApplication {
     private static final ScheduledExecutorService EXECUTOR_SERVICE = Executors.newScheduledThreadPool(1);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         CommandLineParser parser = new CommandLineParser();
         TimerConfiguration config = parser.parse(args);
         if(config != null) {

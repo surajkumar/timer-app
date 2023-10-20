@@ -23,21 +23,16 @@ public class TimeChangeObserver implements TimeChangeEvent {
         long minutes = time / 60;
         long seconds = time % 60;
         SwingUtilities.invokeLater(() -> {
-            timerOverlay.getTimerLabel().setText(DECIMAL_FORMAT.format(minutes) + ":" + DECIMAL_FORMAT.format(seconds));
-
-            /* Fixes rendering issue on Windows */
-            Container frame = timerOverlay.getTimerLabel()
-                    .getParent()
-                    .getParent();
-            frame.revalidate();
-            frame.repaint();
+            timerOverlay.setTime(DECIMAL_FORMAT.format(minutes) + ":" + DECIMAL_FORMAT.format(seconds));
+            timerOverlay.revalidate();
+            timerOverlay.repaint();
         });
     }
 
     @Override
     public void onFinish() {
         SwingUtilities.invokeLater(() ->
-                timerOverlay.getTimerLabel().setText("Finished"));
+                timerOverlay.setTime("Finished"));
         EXECUTOR_SERVICE.schedule(this::exitApplication, 5, TimeUnit.SECONDS);
     }
 

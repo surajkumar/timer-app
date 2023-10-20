@@ -2,25 +2,28 @@ package io.github.surajkumar.ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.InvocationTargetException;
 
 public class TimerFrame {
     private final JFrame frame;
 
-    public TimerFrame(TimerPanel overlay, int overlayWidth, int overlayHeight) {
-        frame = createFrame(overlayWidth, overlayHeight);
-        frame.add(overlay.getPanel());
+    public TimerFrame(TimerPanel overlay, int overlayWidth, int overlayHeight) throws Exception {
+        this.frame = createFrame(overlay, overlayWidth, overlayHeight);
     }
 
-    private JFrame createFrame(int overlayWidth, int overlayHeight) {
-        Rectangle size = ScreenLocator.getDimensions(ScreenLocator.getCurrentTerminalScreen());
-        JFrame frame = new JFrame(ScreenLocator.getCurrentTerminalScreen().getDefaultConfiguration());
-        frame.setUndecorated(true);
-        frame.setBackground(new Color(0, 0, 0, 0));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(overlayWidth, overlayHeight);
-        frame.setLocation(size.width - overlayWidth, overlayHeight);
-        frame.setAlwaysOnTop(true);
-        return frame;
+    private JFrame createFrame(TimerPanel overlay, int overlayWidth, int overlayHeight) throws Exception {
+        JFrame jframe = new JFrame(ScreenLocator.getCurrentTerminalScreen().getDefaultConfiguration());
+        SwingUtilities.invokeAndWait(() -> {
+            Rectangle size = ScreenLocator.getDimensions(ScreenLocator.getCurrentTerminalScreen());
+            jframe.setUndecorated(true);
+            jframe.setBackground(new Color(0, 0, 0, 0));
+            jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            jframe.setSize(overlayWidth, overlayHeight);
+            jframe.setLocation(size.width - overlayWidth, overlayHeight);
+            jframe.setContentPane(overlay);
+            jframe.setAlwaysOnTop(true);
+        });
+        return jframe;
     }
 
     public void show() {

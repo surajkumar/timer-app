@@ -2,35 +2,33 @@ package io.github.surajkumar.ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
-public class TimerPanel {
-    private final JPanel panel;
-    private final JLabel timerLabel;
+public class TimerPanel extends JPanel {
+    private final int fontSize;
+    private final Color textColor;
+    private String time;
 
     public TimerPanel(int fontSize, Color textColor) {
-        this.panel = createPanel();
-        this.timerLabel = createTimerLabel(fontSize, textColor);
-        panel.add(timerLabel);
+        this.fontSize = fontSize;
+        this.textColor = textColor;
+        this.time = "";
+        this.setOpaque(false);
+        setDoubleBuffered(true);
     }
 
-    private JPanel createPanel() {
-        JPanel panel = new JPanel();
-        panel.setBackground(new Color(0, 0, 0, 0));
-        return panel;
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g.create();
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(textColor);
+        g2.setFont(new Font("Arial", Font.BOLD, fontSize));
+        g2.drawString(time, 0, fontSize);
+        g2.dispose();
     }
 
-    private JLabel createTimerLabel(int fontSize, Color textColor) {
-        JLabel timerLabel = new JLabel();
-        timerLabel.setFont(new Font("Arial", Font.BOLD, fontSize));
-        timerLabel.setForeground(textColor);
-        return timerLabel;
-    }
-
-    public JPanel getPanel() {
-        return panel;
-    }
-
-    public JLabel getTimerLabel() {
-        return timerLabel;
+    public void setTime(String time) {
+        this.time = time;
     }
 }
