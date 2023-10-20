@@ -2,8 +2,7 @@ package io.github.surajkumar.ui;
 
 import io.github.surajkumar.time.TimeChangeEvent;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.SwingUtilities;
 import java.text.DecimalFormat;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

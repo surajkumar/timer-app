@@ -1,6 +1,9 @@
 package io.github.surajkumar.ui;
 
-import java.awt.*;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.MouseInfo;
+import java.awt.Rectangle;
 
 public class ScreenLocator {
 

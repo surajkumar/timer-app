@@ -1,8 +1,9 @@
 package io.github.surajkumar.ui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.lang.reflect.InvocationTargetException;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import java.awt.Color;
+import java.awt.Rectangle;
 
 public class TimerFrame {
     private final JFrame frame;
