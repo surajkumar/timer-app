@@ -16,7 +16,7 @@ If you want to pull this repository and work on it locally you will need the fol
 
 You may either clone the repository or fork the upstream repository if you would like to contribute changes:
 
-`git remote add upstream [https://github.com/surajkumar/discord-to-forum-bot.git](https://github.com/surajkumar/countdown-timer-overlay-app.git)`
+`git remote add upstream https://github.com/surajkumar/discord-to-forum-bot.git`
 
 Within the `countdown-timer-overlay-app` directory, run the Gradle command: `gradle build` this will download any dependencies and build the program.
 
