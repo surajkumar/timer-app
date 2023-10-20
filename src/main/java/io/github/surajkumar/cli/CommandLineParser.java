@@ -1,4 +1,4 @@
-package io.github.surajkumar;
+package io.github.surajkumar.cli;
 
 import java.util.HashMap;
 import java.util.Map;

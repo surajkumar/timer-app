@@ -1,29 +1,44 @@
 package io.github.surajkumar.ui;
 
-import javax.swing.*;
-import java.awt.*;
+import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class TimerFrame {
-    private final JFrame frame;
+import javafx.scene.text.Font;
 
-    public TimerFrame(TimerPanel overlay, int overlayWidth, int overlayHeight) {
-        frame = createFrame(overlayWidth, overlayHeight);
-        frame.add(overlay.getPanel());
+public class TimerFrame extends Application {
+    private static final int WIDTH = 500;
+    private static final int HEIGHT = 200;
+
+    private static final Text TIME = new Text("Hello");
+    static {
+        TIME.setFont(new Font("Arial", 80));
+        TIME.setFill(Color.DARKGRAY);
     }
 
-    private JFrame createFrame(int overlayWidth, int overlayHeight) {
-        Rectangle size = ScreenLocator.getDimensions(ScreenLocator.getCurrentTerminalScreen());
-        JFrame frame = new JFrame(ScreenLocator.getCurrentTerminalScreen().getDefaultConfiguration());
-        frame.setUndecorated(true);
-        frame.setBackground(new Color(0, 0, 0, 0));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(overlayWidth, overlayHeight);
-        frame.setLocation(size.width - overlayWidth, overlayHeight);
-        frame.setAlwaysOnTop(true);
-        return frame;
+    @Override
+    public void start(Stage primaryStage) {
+        StackPane root = new StackPane();
+        root.getChildren().add(TIME);
+        Scene scene = new Scene(root, Color.TRANSPARENT);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+        primaryStage.setScene(scene);
+        primaryStage.setAlwaysOnTop(true);
+        primaryStage.setWidth(WIDTH);
+        primaryStage.setHeight(HEIGHT);
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+        primaryStage.setX(bounds.getMaxX() - WIDTH);
+        primaryStage.setY(0);
+        primaryStage.show();
     }
 
-    public void show() {
-        frame.setVisible(true);
+    public static Text getTimeText() {
+        return TIME;
     }
 }

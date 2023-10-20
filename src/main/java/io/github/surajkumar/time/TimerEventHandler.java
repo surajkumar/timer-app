@@ -1,6 +1,6 @@
 package io.github.surajkumar.time;
 
-import io.github.surajkumar.TimerConfiguration;
+import io.github.surajkumar.cli.TimerConfiguration;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +23,7 @@ public class TimerEventHandler implements Runnable {
     public void run() {
         timer.schedule(new TimerTask() {
             long timeLeft = TimeUnit.MILLISECONDS.convert(configuration.getTime(), configuration.getTimeUnit()) / 1000;
+
             @Override
             public void run() {
                 if (timeLeft <= 0) {
