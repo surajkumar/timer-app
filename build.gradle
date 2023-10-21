@@ -2,6 +2,7 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '8.1.1'
     id 'com.diffplug.spotless' version '6.22.0'
     id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'java'
     id 'application'
 }
 
@@ -9,7 +10,8 @@ group = 'io.github.surajkumar'
 version = '1.0'
 
 application {
-    mainClass = 'io.github.surajkumar.javafx.TransparentHelloWorld'
+    mainModule = 'io.github.surajkumar'
+    mainClass = 'io.github.surajkumar.TimerApplication'
 }
 
 repositories {
@@ -17,16 +19,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.openjfx:javafx-base:17.0.0.1'
-    implementation 'org.openjfx:javafx-controls:17.0.0.1'
-    implementation 'org.openjfx:javafx-fxml:17.0.0.1'
-    implementation 'org.openjfx:javafx-graphics:17.0.0.1'
-    implementation 'org.openjfx:javafx-media:17.0.0.1'
-    implementation 'org.openjfx:javafx-swing:17.0.0.1'
-    implementation 'org.openjfx:javafx-web:17.0.0.1'
+    implementation 'org.openjfx:javafx-base:22-ea+11'
 }
 
 javafx {
-    version = "17.0.0.1"
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    version = "22-ea+11"
+    modules = [ 'javafx.graphics' ]
 }
