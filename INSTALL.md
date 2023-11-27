@@ -29,9 +29,9 @@ Now, you can run `timer 10s` from your command prompt.
 * [Git](https://git-scm.com/)
 
 ### Installation Steps
-1. Clone the repository: `git clone https://github.com/surajkumar/countdown-timer-overlay-app.git`
-2. Navigate to the project directory:  `cd countdown-timer-overlay-app`
+1. Clone the repository: `git clone https://github.com/surajkumar/timer-app.git`
+2. Navigate to the project directory:  `cd timer-app`
 3. Run `gradle build`
-4. The `countdown-timer-overlay-app.jar` will be installed
+4. The `timer-app.jar` will be installed
 5. Rename the file and add the path to your `PATH` environment variable for easy access.
 
