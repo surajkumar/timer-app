@@ -2,6 +2,7 @@ package io.github.surajkumar.ui;
 
 import io.github.surajkumar.sound.SoundPlayer;
 import io.github.surajkumar.time.TimeChangeEvent;
+
 import javafx.scene.text.Text;
 
 import java.text.DecimalFormat;
@@ -10,7 +11,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class TimeChangeObserver implements TimeChangeEvent {
-    private static final ScheduledExecutorService EXECUTOR_SERVICE = Executors.newScheduledThreadPool(1);
+    private static final ScheduledExecutorService EXECUTOR_SERVICE =
+            Executors.newScheduledThreadPool(1);
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("00");
     private final Text text;
 

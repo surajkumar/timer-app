@@ -6,12 +6,27 @@ plugins {
     id 'application'
 }
 
+group = 'io.github.surajkumar'
+version = '1.0'
+
 application {
     mainClassName = 'io.github.surajkumar.TimerApplication'
 }
 
-group = 'io.github.surajkumar'
-version = '1.0'
+spotless {
+    java {
+        importOrder()
+        googleJavaFormat()
+                .aosp()
+                .reflowLongStrings()
+                .formatJavadoc(true)
+                .reorderImports(true)
+                .groupArtifact('com.google.googlejavaformat:google-java-format')
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+    }
+}
 
 repositories {
     mavenCentral()

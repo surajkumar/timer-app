@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class CommandHandler {
     private static final Map<String, Command> COMMANDS = new HashMap<>();
+
     static {
         COMMANDS.put("version", new VersionCommand());
     }

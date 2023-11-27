@@ -5,18 +5,18 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import javafx.scene.text.Font;
 
 public class TimerFrame extends Application {
     private static final int WIDTH = 500;
     private static final int HEIGHT = 200;
 
     private static final Text TIME = new Text("Hello");
+
     static {
         TIME.setFont(new Font("Arial", 80));
         TIME.setFill(Color.DARKGRAY);

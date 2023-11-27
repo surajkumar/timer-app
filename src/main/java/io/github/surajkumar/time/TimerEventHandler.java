@@ -13,7 +13,8 @@ public class TimerEventHandler implements Runnable {
     private final TimerConfiguration configuration;
     private final List<TimeChangeEvent> timeChangeObservers;
 
-    public TimerEventHandler(TimerConfiguration configuration, TimeChangeEvent... timeChangeEvents) {
+    public TimerEventHandler(
+            TimerConfiguration configuration, TimeChangeEvent... timeChangeEvents) {
         this.timer = new Timer();
         this.configuration = configuration;
         this.timeChangeObservers = Arrays.asList(timeChangeEvents);
@@ -21,19 +22,25 @@ public class TimerEventHandler implements Runnable {
 
     @Override
     public void run() {
-        timer.schedule(new TimerTask() {
-            long timeLeft = TimeUnit.MILLISECONDS.convert(configuration.getTime(), configuration.getTimeUnit()) / 1000;
+        timer.schedule(
+                new TimerTask() {
+                    long timeLeft =
+                            TimeUnit.MILLISECONDS.convert(
+                                            configuration.getTime(), configuration.getTimeUnit())
+                                    / 1000;
 
-            @Override
-            public void run() {
-                if (timeLeft <= 0) {
-                    timer.cancel();
-                    timeChangeObservers.forEach(TimeChangeEvent::onFinish);
-                } else {
-                    timeChangeObservers.forEach(observer -> observer.onChange(timeLeft));
-                    timeLeft--;
-                }
-            }
-        }, 0, 1000);
+                    @Override
+                    public void run() {
+                        if (timeLeft <= 0) {
+                            timer.cancel();
+                            timeChangeObservers.forEach(TimeChangeEvent::onFinish);
+                        } else {
+                            timeChangeObservers.forEach(observer -> observer.onChange(timeLeft));
+                            timeLeft--;
+                        }
+                    }
+                },
+                0,
+                1000);
     }
 }

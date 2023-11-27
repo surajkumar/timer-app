@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 public class CommandLineParser {
     private static final Pattern PATTERN = Pattern.compile("([0-9]+)([a-zA-Z]+)");
     private static final Map<String, String> UNIT_CONVERSIONS = new HashMap<>();
+
     static {
         UNIT_CONVERSIONS.put("s", "SECONDS");
         UNIT_CONVERSIONS.put("ms", "MILLISECONDS");
@@ -29,7 +30,7 @@ public class CommandLineParser {
                         arg = args[i + 1];
                         i += 2;
                     }
-                    if(CommandHandler.handle(command, arg)) {
+                    if (CommandHandler.handle(command, arg)) {
                         count++;
                     }
                 }
@@ -48,7 +49,6 @@ public class CommandLineParser {
                     return new TimerConfiguration(Integer.parseInt(matcher.group(1)), timeUnit);
                 }
             }
-
         }
         return null;
     }
