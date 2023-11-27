@@ -1,4 +1,4 @@
-# Count Down Timer Desktop Overlay
+# Timer App
 
 ## Overview
 The Countdown Timer Desktop Overlay is a simple Java program that allows you to overlay a customizable timer on your desktop. Whether you're working, gaming, or just want a visual timer, this program is perfect for you. It offers a quick and convenient way to track time without the need for a separate app or browser tab.
@@ -19,15 +19,15 @@ If you want to pull this repository and work on it locally you will need the fol
 
 You may either clone the repository or fork the upstream repository if you would like to contribute changes:
 
-`git remote add upstream https://github.com/surajkumar/countdown-timer-overlay-app.git`
+`git remote add upstream https://github.com/surajkumar/timer-app.git`
 
 Within the `countdown-timer-overlay-app` directory, run the Gradle command: `gradle build` this will download any dependencies and build the program.
 
 ## Screenshots
 On the desktop:
 
-![image](https://github.com/surajkumar/countdown-timer-overlay-app/assets/76599223/4faab686-ed99-4af0-ada9-3ea43c6baa7b)
+![image](https://github.com/surajkumar/timer-app/assets/76599223/4faab686-ed99-4af0-ada9-3ea43c6baa7b)
 
 Overlays on-top of applications, so you can always see the timer:
 
-![image](https://github.com/surajkumar/countdown-timer-overlay-app/assets/76599223/565f6b68-fac9-4960-8809-acf3074565c3)
+![image](https://github.com/surajkumar/timer-app/assets/76599223/565f6b68-fac9-4960-8809-acf3074565c3)
