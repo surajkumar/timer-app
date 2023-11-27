@@ -3,6 +3,9 @@
 ## Overview
 The Countdown Timer Desktop Overlay is a simple Java program that allows you to overlay a customizable timer on your desktop. Whether you're working, gaming, or just want a visual timer, this program is perfect for you. It offers a quick and convenient way to track time without the need for a separate app or browser tab.
 
+## Download
+To download please read the [INSTALL](INSTALL.md) guide.
+
 ## Features
 * **Easy CLI Usage**: Start the timer from the command line with a single command.
 * **Customizable**: Set the timer for any desired duration, such as "10s" for 10 seconds or "1h" for 1 hour
@@ -16,7 +19,7 @@ If you want to pull this repository and work on it locally you will need the fol
 
 You may either clone the repository or fork the upstream repository if you would like to contribute changes:
 
-`git remote add upstream https://github.com/surajkumar/discord-to-forum-bot.git`
+`git remote add upstream https://github.com/surajkumar/countdown-timer-overlay-app.git`
 
 Within the `countdown-timer-overlay-app` directory, run the Gradle command: `gradle build` this will download any dependencies and build the program.
 
