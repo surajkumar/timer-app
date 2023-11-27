@@ -1,5 +1,6 @@
 package io.github.surajkumar.ui;
 
+import io.github.surajkumar.sound.SoundPlayer;
 import io.github.surajkumar.time.TimeChangeEvent;
 import javafx.scene.text.Text;
 
@@ -26,6 +27,7 @@ public class TimeChangeObserver implements TimeChangeEvent {
 
     @Override
     public void onFinish() {
+        SoundPlayer.playSound();
         text.setText("Finished");
         EXECUTOR_SERVICE.schedule(this::exitApplication, 5, TimeUnit.SECONDS);
     }
