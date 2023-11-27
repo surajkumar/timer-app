@@ -26,7 +26,7 @@ public class TimerEventHandler implements Runnable {
                 new TimerTask() {
                     long timeLeft =
                             TimeUnit.MILLISECONDS.convert(
-                                            configuration.getTime(), configuration.getTimeUnit())
+                                            configuration.time(), configuration.timeUnit())
                                     / 1000;
 
                     @Override
